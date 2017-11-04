@@ -11,7 +11,7 @@
         public function __construct(){
             $this->authjsonfile = dirname(__FILE__).'/yamatotrack-c49951835862.json';
             $this->sheetid = '1dDGoXdE03y52II9tSumDJt0v2z22opGbtuTre_XElIg';
-            $this->speakurl = 'http://a3bc4fe2.ngrok.io/google-home-notifier';
+            $this->speakurl = 'https://7464d9ea.ap.ngrok.io/google-home-notifier';
         }
 
         function debugger(){

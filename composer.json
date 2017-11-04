@@ -3,5 +3,7 @@
     "description": "Tracking Service for Yamato Transport.",
     "type": "project",
     "license": "MIT",
-    "require": {"mach3/google-spreadsheet": "*"}
+    "require": {
+        "mach3/google-spreadsheet": "*"
+    }
 }
