@@ -1,5 +1,5 @@
 # yamato-track
-クロネコヤマトに託した荷物がどこにあるか、Google Spreadsheetに追跡番号を登録しておいて、まだ届いていない荷物の状況をGoogle Homeが喋ります。
+クロネコヤマトに託した荷物がどこにあるか、Google Spreadsheetに追跡番号を登録しておいて、まだ届いていない荷物の状況をGoogle Homeが喋ります。
 
 ## インストール
 ```
@@ -9,7 +9,7 @@ composer install
 ## 準備
 - Google DriveのAPIを使う準備をする。下記参照。
 - [PHP と Sheets API を利用して Google Spread Sheets を操作する方法 — さめたすたすのお家](http://www.sharkpp.net/blog/2016/09/22/how-to-use-google-spreadsheets-api-for-php.html)
-- 手に入れたjsonファイルのパスをutilclass.phpのコンストラクタ内のauthjsonfileに代入する
+- 手に入れたjsonファイルのパスをutilclass.phpのコンストラクタ内のauthjsonfileに代入する
 - 共有設定をしたスプレッドシートのidをutilclass.phpのコンストラクタ内のsheetidに代入する
 - ngrokから払い出されたURLをutilclass.phpのコンストラクタ内speakurlに代入
     - e.g. https://hogehoge.ngrok.com/google-home-notifier
@@ -37,7 +37,7 @@ nohup ngrok http 3000 --region=ap &
 1. とりあえず実行するとGoogle Homeが喋る
 ```
 php track.php
-ばなな will say: 伝票番号 4445-5393-6xxxの11月03日18:27時点のステータスは作業店通過です。担当店は船橋ベース店です。
+ばなな will say: 伝票番号 4445-5xxx-xxxxの11月03日18:27時点のステータスは作業店通過です。担当店は船橋ベース店です。
 ```
 ![コンソールの様子](https://github.com/halka/yamato-track/raw/master/img/console.png)
 
