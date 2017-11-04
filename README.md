@@ -24,7 +24,7 @@ nohup ngrok http 3000 --region=ap &
 ### スプレッドシートの準備
 ヘッダーを下記のようにする
 
-|SlipNo|Item|Date|Time|Status|PlaceName|isDerived|
+|SlipNo|Item|Date|Time|Status|PlaceName|isDerivered|
 ----|----|----|----|----|----|----|
 ### IFTTTの設定
 1. [New Applet](https://ifttt.com/create)を作成

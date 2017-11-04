@@ -41,11 +41,11 @@
             $this->sheet = &$sheet->items; 
     
             foreach($sheet->items as $key => $item){
-                if($item['isDerived'] === 'FALSE' or empty($item['isDerived']))
+                if($item['isDerivered'] === 'FALSE' or empty($item['isDerivered']))
                 {
                         $result = $this->trackBySplitNumber($item['SlipNo']);
-                        // delived?
-                        $delived_flag = preg_match('/.+完了/u', $result['status'])? 'TRUE':'FALSE';
+                        // delivered?
+                        $delivered_flag = preg_match('/.+完了/u', $result['status'])? 'TRUE':'FALSE';
                         // update spreadsheet
                         $sheet->update($key, 'SlipNo', $item['SlipNo']);
                         $sheet->update($key, 'Item', $result['item']);
@@ -53,7 +53,7 @@
                         $sheet->update($key, 'Time', $result['time']); 
                         $sheet->update($key, 'Status', $result['status']); 
                         $sheet->update($key, 'PlaceName', $result['placename']);
-                        $sheet->update($key, 'isDerived', $delived_flag);
+                        $sheet->update($key, 'isDerivered', $delivered_flag);
                 }
             }
         }
@@ -67,7 +67,7 @@
 
         function messageMaker(){
             foreach($this->sheet as $item){
-                if($item['isDerived'] === "FALSE"){
+                if($item['isDerivered'] === "FALSE"){
                     $slipno = wordwrap($item['SlipNo'], 4, '-', true);
                     $datetime = str_replace('/','月',$item['Date']).'日'.$item['Time'];
                     $status = $item['Status'];
