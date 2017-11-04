@@ -39,3 +39,5 @@ php track.php
 ```
 
 3. Google HomeにOK,Google {設定したphrase}と話かけると2と同じ音声が聞こえたら成功。
+## TODO
+- 不在通知とかを見てみたい。
