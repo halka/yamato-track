@@ -17,12 +17,13 @@ composer install
 下記のサイトを参考にして設定。
 - [GoogleHomeスピーカーに外部からプッシュして自発的に話してもらいます - Qiita](https://qiita.com/azipinsyan/items/db4606aaa51426ac8dac)
 - Raspberry Piにたどり着くために[ngrokを使用してローカル環境を外部に公開する - Qiita](https://qiita.com/kitaro729/items/44214f9f81d3ebda58bd)
-準備ができたらngrokを起動
+- 準備ができたらngrokを起動
 ```
 nohup ngrok http 3000 --region=ap &
 ```
 ### スプレッドシートの準備
 ヘッダーを下記のようにする
+
 |SlipNo|Item|Date|Time|Status|PlaceName|isDerived|
 ----|----|----|----|----|----|----|
 ### IFTTTの設定
