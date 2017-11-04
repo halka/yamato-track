@@ -26,6 +26,8 @@ nohup ngrok http 3000 --region=ap &
 
 |SlipNo|Item|Date|Time|Status|PlaceName|isDerivered|
 ----|----|----|----|----|----|----|
+
+![スプレッドシートの様子](https://github.com/halka/yamato-track/blob/master/img/spread.png)
 ### IFTTTの設定
 1. [New Applet](https://ifttt.com/create)を作成
 1. thisにGoogle AssistantのSay a simple phraseを選択
@@ -37,7 +39,7 @@ nohup ngrok http 3000 --region=ap &
 php track.php
 ばなな will say: 伝票番号 4445-5393-6xxxの11月03日18:27時点のステータスは作業店通過です。担当店は船橋ベース店です。
 ```
-
+![コンソールの様子](https://github.com/halka/yamato-track/raw/master/img/console.png)
 3. Google HomeにOK,Google {設定したphrase}と話かけると2と同じ音声が聞こえたら成功。
 ## TODO
 - 不在通知とかを見てみたい。
