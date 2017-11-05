@@ -13,6 +13,10 @@ composer install
 - 共有設定をしたスプレッドシートのidをutilclass.phpのコンストラクタ内のsheetidに代入する
 - ngrokから払い出されたURLをutilclass.phpのコンストラクタ内speakurlに代入
     - e.g. https://hogehoge.ngrok.com/google-home-notifier
+- conf.yaml.sampleをconf.yamlにリネームする
+    - gauthfileに認証のjsonファイル名を指定
+    - sheetidにスプレッドシートのidを指定
+    - speakurlにRaspberry Piを喋らせるエンドポイントまでのURLを指定
 ### Raspberry Piの設定
 下記のサイトを参考にして設定。
 - [GoogleHomeスピーカーに外部からプッシュして自発的に話してもらいます - Qiita](https://qiita.com/azipinsyan/items/db4606aaa51426ac8dac)
