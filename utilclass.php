@@ -7,11 +7,13 @@
         public $sheetid;
         public $sheet;
         public $speakurl;
+        private $conf;
 
         public function __construct(){
-            $this->authjsonfile = dirname(__FILE__).'/yamatotrack-c49951835862.json';
-            $this->sheetid = '1dDGoXdE03y52II9tSumDJt0v2z22opGbtuTre_XElIg';
-            $this->speakurl = 'https://7464d9ea.ap.ngrok.io/google-home-notifier';
+            $this->conf = \Symfony\Component\Yaml\Yaml::parse(file_get_contents(dirname(__FILE__).'/conf.yaml'));
+            $this->authjsonfile = dirname(__FILE__).'/'.$this->conf['gauthjson'];
+            $this->sheetid = $this->conf['sheetid'];
+            $this->speakurl = $this->conf['speakurl'];
         }
 
         function debugger(){
@@ -38,8 +40,7 @@
             $client = Google_Spreadsheet::getClient($this->authjsonfile);
             $file = $client->file($this->sheetid);
             $sheet = $file->sheet("Sheet1");
-            $this->sheet = &$sheet->items; 
-    
+
             foreach($sheet->items as $key => $item){
                 if($item['isDerivered'] === 'FALSE' or empty($item['isDerivered']))
                 {
@@ -66,7 +67,9 @@
         }
 
         function messageMaker(){
-            foreach($this->sheet as $item){
+            $client = Google_Spreadsheet::getClient($this->authjsonfile);
+            $file = $client->file($this->sheetid);
+            foreach($file->sheet("Sheet1")->items as $item){
                 if($item['isDerivered'] === "FALSE"){
                     $slipno = wordwrap($item['SlipNo'], 4, '-', true);
                     $datetime = str_replace('/','月',$item['Date']).'日'.$item['Time'];

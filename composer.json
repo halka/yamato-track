@@ -4,6 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "mach3/google-spreadsheet": "*"
+        "mach3/google-spreadsheet": "*",
+        "symfony/yaml": "^3.3"
     }
 }
