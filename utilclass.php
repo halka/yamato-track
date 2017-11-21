@@ -79,11 +79,12 @@
                     $itemtype = $item['Item'];
                     $placename = $item['PlaceName'];
                     $message =  "伝票番号 ${slipno} ${itemtype}の${datetime}時点のステータスは${status}です。担当店は${placename}です。";
+                    $this->speakGoogleHome($message);                    
                 }else{
                     $message =  "まだ届いていない荷物はありません。";
+                    $this->speakGoogleHome($message);                    
                 }
             }
-            return $message;
         }
 
         function speakGoogleHome($message){
