@@ -4,4 +4,5 @@
     $utils = new UtilClass;
 
     $utils->updateSpreadSheet();
+    $utils->messageMaker();
 ?>

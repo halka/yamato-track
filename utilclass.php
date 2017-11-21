@@ -81,7 +81,7 @@
                     $message =  "伝票番号 ${slipno} ${itemtype}の${datetime}時点のステータスは${status}です。担当店は${placename}です。";
                     $this->speakGoogleHome($message);                    
                 }else{
-                    $message =  "まだ届いていない荷物はありません。";
+                    $message =  "まだ届いていない荷物がないか、すべて配達が完了しています。";
                     $this->speakGoogleHome($message);                    
                 }
             }
