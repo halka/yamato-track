@@ -71,8 +71,10 @@
             $file = $client->file($this->sheetid);
             $items = $file->sheet("Sheet1")->items;
             $message = '';
+            $notderivered = 0;
             foreach($items as $item) {
                 if($item['isDerivered'] === "FALSE") {
+                    $notderivered++;
                     $slipno = wordwrap($item['SlipNo'], 4, '-', true);
                     $datetime = str_replace('/','月',$item['Date']).'日'.$item['Time'];
                     $status = $item['Status'];
@@ -80,12 +82,13 @@
                     $placename = $item['PlaceName'];
                     $message =  "伝票番号 ${slipno} ${itemtype}の${datetime}時点のステータスは${status}です。担当店は${placename}です。";
                     $this->speakGoogleHome($message);                    
-                }else{
-                    $message =  "まだ届いていない荷物がないか、すべて配達が完了しています。";
-                    $this->speakGoogleHome($message);                    
+                    }
+                }
+                if($notderivered == 0) {
+                    $message = "まだ届いていない荷物がないか、すべて配達が完了しています。";
+                    $this->speakGoogleHome($message);
                 }
             }
-        }
 
         function speakGoogleHome($message){
             $url = $this->speakurl;
