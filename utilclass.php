@@ -69,17 +69,21 @@
         function messageMaker(){
             $client = Google_Spreadsheet::getClient($this->authjsonfile);
             $file = $client->file($this->sheetid);
-            foreach($file->sheet("Sheet1")->items as $item){
-                if($item['isDerivered'] === "FALSE"){
+            $items = $file->sheet("Sheet1")->items;
+            $message = '';
+            foreach($items as $item) {
+                if($item['isDerivered'] === "FALSE") {
                     $slipno = wordwrap($item['SlipNo'], 4, '-', true);
                     $datetime = str_replace('/','月',$item['Date']).'日'.$item['Time'];
                     $status = $item['Status'];
+                    $itemtype = $item['Item'];
                     $placename = $item['PlaceName'];
-                    return "伝票番号 ${slipno}の${datetime}時点のステータスは${status}です。担当店は${placename}です。";
+                    $message =  "伝票番号 ${slipno} ${itemtype}の${datetime}時点のステータスは${status}です。担当店は${placename}です。";
                 }else{
-                    return "まだ届いていない荷物はありません。";
+                    $message =  "まだ届いていない荷物はありません。";
                 }
             }
+            return $message;
         }
 
         function speakGoogleHome($message){
