@@ -85,7 +85,7 @@
                     }
                 }
                 if($notderivered == 0) {
-                    $message = "まだ届いていない荷物がないか、すべて配達が完了しています。";
+                    $message = "登録された荷物はすべて配達が完了しています。";
                     $this->speakGoogleHome($message);
                 }
             }
