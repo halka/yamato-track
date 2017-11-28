@@ -70,7 +70,7 @@
             $client = Google_Spreadsheet::getClient($this->authjsonfile);
             $file = $client->file($this->sheetid);
             $items = $file->sheet("Sheet1")->items;
-            $message = '';
+            $messages = '';
             $notderivered = 0;
             foreach($items as $item) {
                 if($item['isDerivered'] === "FALSE") {
@@ -80,14 +80,13 @@
                     $status = $item['Status'];
                     $itemtype = $item['Item'];
                     $placename = $item['PlaceName'];
-                    $message =  "伝票番号 ${slipno} ${itemtype}の${datetime}時点のステータスは${status}です。担当店は${placename}です。";
-                    $this->speakGoogleHome($message);                    
+                    $messages.="伝票番号 ${slipno} ${itemtype}の${datetime}時点のステータスは${status}です。担当店は${placename}です。 ";
                     }
                 }
                 if($notderivered == 0) {
-                    $message = "登録された荷物はすべて配達が完了しています。";
-                    $this->speakGoogleHome($message);
+                    $messages = "登録された荷物はすべて配達が完了しています。";
                 }
+                $this->speakGoogleHome($messages);                
             }
 
         function speakGoogleHome($message){
